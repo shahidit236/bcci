@@ -1,0 +1,1 @@
+﻿var scorecardURL="https://www.bcci.tv/",widgetPath="https://scores.bcci.tv/matchcentre/homewidgetv3/",showMCBWIDDivision=!1,tournamentPageBasePath="https://scores.bcci.tv/matchcentre/",feedsource="https://feeds-100mb.s3-ap-southeast-1.amazonaws.com/feeds",currentSeasonId=12,playerImgPath="images/players/",basePath='https://scores.bcci.tv/matchcentre/';

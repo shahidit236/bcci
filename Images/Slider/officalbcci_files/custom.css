@@ -1,0 +1,19 @@
+/* =========================================================================================
+@Description: Custom StyleSheet
+@Version: 1.0, 2022
+============================================================================================ */
+.navunit{
+	display: none; 	
+}
+.navunit.active{
+	display: block;
+}
+.fullwidth{
+/*	width: 100% !important;*/
+}
+.inactive{
+	display: none !important;
+}
+.SMwrapper section{
+	padding: 0 !important;
+}

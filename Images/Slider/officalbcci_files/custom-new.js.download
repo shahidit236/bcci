@@ -1,0 +1,850 @@
+$(document).ready(function () {
+
+  $('.video-carousel').slick({
+    slidesToShow: 1,
+    arrows: true,
+    dots: true,
+    autoplaySpeed: 1500,
+    autoplay: true,
+    appendDots: $(".slide-m-dots"),
+    prevArrow: $(".slide-m-prev"),
+    nextArrow: $(".slide-m-next"),
+  });
+
+  //For Upcoming Video
+  upcomingVideoData("slick-slide01"); //Default Upcoming Video Data Index will be 1
+  $('.video-carousel').on('afterChange', function (event, slick, currentSlide) {
+    if (slick.$slides.length == currentSlide + slick.options.slidesToScroll) {//Last Slide
+      var dataId = $(slick.$slides.get(0)).attr('id');
+    } else {
+      var dataId = $(slick.$slides.get(currentSlide + 1)).attr('id');
+    }
+
+    upcomingVideoData(dataId);
+  });
+
+  $('.tour-carousel').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 2.9,
+    slidesToScroll: 1,
+    accessibility: true,
+    appendDots: $(".slide-m-dots"),
+    prevArrow: $(".slide-m-prev"),
+    nextArrow: $(".slide-m-next"),
+    responsive: [
+      {
+        breakpoint: 1336,
+        settings: {
+          slidesToShow: 2.9,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2.2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1.9,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1.3,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.3,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.feature-carousel').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 1.7,
+    slidesToScroll: 1,
+    accessibility: true,
+    appendDots: $(".slide-mf-dots"),
+    prevArrow: $(".slide-mf-prev"),
+    nextArrow: $(".slide-mf-next"),
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 1.7,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.video-by-player').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 9.5,
+    slidesToScroll: 1,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 9.5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 7.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 5.2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 2.5,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 2.5,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.latest-videos-highlights, .latest-videos-press-conference').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 3.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.1,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.latest-videos-latest').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 3.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.1,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.latest-videos').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 3.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.1,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  $('.latest-videos-player').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 2.8,
+    slidesToScroll: 1,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 2.8,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 1.8,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.3,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.2,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.latest-videos-player1').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 3.1,
+    slidesToScroll: 1,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 3.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 1.8,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.3,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.2,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  // chirag js
+
+  $('.premium-carousel').slick({
+    slidesToShow: 1,
+    arrows: true,
+    dots: true,
+    autoplay: true,
+    appendDots: $(".slide-m-dots"),
+    prevArrow: $(".slide-m-prev"),
+    nextArrow: $(".slide-m-next"),
+  });
+
+  $('.features-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav',
+  });
+  $('.slider-nav').slick({
+    slidesToShow: 3.5,
+    slidesToScroll: 1,
+    asNavFor: '.features-for',
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true,
+    prevArrow: $(".slide-fi-prev"),
+    nextArrow: $(".slide-fi-next"),
+    responsive: [
+      {
+        breakpoint: 1367,
+        settings: {
+          slidesToShow: 3.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.5,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.5,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+
+
+  $(".id-tab a").on("click", function () {
+    $(".id-tab a").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  $(".nav-menu").on("click", function () {
+    $(".category-menu").removeClass("active");
+    $('.' + $(this).attr('data-nav') + '-category-menu:first').addClass("active");
+    $(".imw-tabs").hide();
+    $('.' + $(this).attr('data-nav') + "-tabs:first").show();
+
+    setNavigationUrl();
+  });
+
+  $(".category-menu").on("click", function () {
+    $(".category-menu").removeClass("active");
+    $(this).addClass("active");
+    $(".imw-tabs").hide();
+    $("#imw-" + $(this).attr('data-sub')).show();
+    setNavigationUrl();
+  });
+
+  $(".imw-tabs a,.imw-tabs-women a,.dmw-tabs a,.dmw-tabs-women a").on("click", function () {
+    $(".imw-tabs a,.imw-tabs-women a,.dmw-tabs a,.dmw-tabs-women a").removeClass("active");
+    $(this).addClass("active");
+  });
+  $(".mb-hamburger").on("click", function () {
+    $(".side-menu").css("left","0");
+  });
+  $(".close").on("click", function () {
+    $(".side-menu").css("left","-100%");
+  });
+
+
+  // Gallery image hover
+  $(document).on({
+    mouseenter: function () {
+      $(this).find(".img-overlay").animate({ opacity: 1 }, 600);
+    },
+    mouseleave: function () {
+      $(this).find(".img-overlay").animate({ opacity: 0 }, 600);
+    }
+  }, '.img-wrapper');
+
+  // Lightbox
+  var $overlay = $('<div id="overlay"></div>');
+  var $image = $("<img>");
+  var $prevButton = $('<div id="prevButton"><</div>');
+  var $nextButton = $('<div id="nextButton">></div>');
+  var $exitButton = $('<div id="exitButton">x</div>');
+
+  // Add overlay
+  $overlay.append($image).prepend($prevButton).append($nextButton).append($exitButton);
+  $("#gallery").append($overlay);
+
+  // Hide overlay on default
+  $overlay.hide();
+
+  // When an image is clicked
+  $(document).on('click', ".img-overlay1", function (event) {
+    // Prevents default behavior
+    event.preventDefault();
+    // Adds href attribute to variable
+    var imageLocation = $(this).prev().attr("src");
+    // Add the image src to $image
+    $image.attr("src", imageLocation);
+    // Fade in the overlay
+    $overlay.fadeIn("slow");
+  });
+
+  // When the overlay is clicked
+  $overlay.click(function () {
+    // Fade out the overlay
+    $(this).fadeOut("slow");
+  });
+
+  // When next button is clicked
+  $nextButton.click(function (event) {
+    // Hide the current image
+    $("#overlay img").hide();
+    // Overlay image location
+    var $currentImgSrc = $("#overlay img").attr("src");
+    // Image with matching location of the overlay image
+    var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+    // Finds the next image
+    var $nextImg = $($currentImg.closest(".image").next().find("img"));
+    // All of the images in the gallery
+    var $images = $("#image-gallery img");
+    // If there is a next image
+    if ($nextImg.length > 0) {
+      // Fade in the next image
+      $("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+    } else {
+      // Otherwise fade in the first image
+      $("#overlay img").attr("src", $($images[0]).attr("src")).fadeIn(800);
+    }
+    // Prevents overlay from being hidden
+    event.stopPropagation();
+  });
+
+  // When previous button is clicked
+  $prevButton.click(function (event) {
+    // Hide the current image
+    $("#overlay img").hide();
+    // Overlay image location
+    var $currentImgSrc = $("#overlay img").attr("src");
+    // Image with matching location of the overlay image
+    var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+    // Finds the next image
+    var $nextImg = $($currentImg.closest(".image").prev().find("img"));
+    // Fade in the next image
+    $("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+    // Prevents overlay from being hidden
+    event.stopPropagation();
+  });
+
+  // When the exit button is clicked
+  $exitButton.click(function () {
+    // Fade out the overlay
+    $("#overlay").fadeOut("slow");
+  });
+
+  // When the exit button is clicked
+  $exitButton.click(function () {
+    // Fade out the overlay
+    $("#overlay").fadeOut("slow");
+  });
+
+  $("#d-hamburger").on("click", function () {
+    $(".top-humb").toggleClass("d-toggle");
+  });
+  $(".top-humb ul li a").on("click", function () {
+    $(".top-humb ul li a").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  $(".top-humb ul li a").on("click", function () {
+    $(".top-humb ul li a").removeClass("active");
+    $(this).addClass("active");
+  });
+  $("#search,.mb-search").on("click", function () {
+    $(".search-toggle").toggleClass("search-t");
+  });
+
+
+  // ranking
+
+  $("#player-ranking").on("click", function () {
+    $(".arrow-rank").toggleClass("rank-rotate");
+    $(".bba-ranking-tab").toggleClass("bba-tab-toggle");
+  });
+  $("#bowling-records").on("click", function () {
+    $(".b-arrow-rank").toggleClass("b-rank-rotate");
+    $(".ps-ranking-tab").toggleClass("bba-tab-toggle");
+  });
+  $("#field-records").on("click", function () {
+    $(".f-arrow-rank").toggleClass("f-rank-rotate");
+    $(".fs-ranking-tab").toggleClass("bba-tab-toggle");
+  });
+  $("#partnership-records").on("click", function () {
+    $(".psr-arrow-rank").toggleClass("psr-rank-rotate");
+    $(".psr-ranking-tab").toggleClass("bba-tab-toggle");
+  });
+
+  /*$("#bba li a").on("click", function () {
+    $("#bba li a").removeClass("active");
+    $(this).addClass("active");
+  });*/
+
+  $(".seemore-btn").on("click", function () {
+    $(".about-player p").toggleClass("seemore-para");
+
+    if ($('.seemore-btn').text() == "Read More") {
+      $(this).text("Read Less")
+    } else {
+      $(this).text("Read More")
+    };
+  });
+
+  //AOS.init();
+
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+
+const toggle = document.querySelector('#toggle');
+// const bgchanged = document.getElementsByClassName("switch-int-dom");
+toggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark');
+  $(".switch-int-dom").toggleClass("dark");
+});
+
+});
+
+
+function upcomingVideoData(dataId) {
+  var title = $('#' + dataId).find('a').attr('data-title');
+  var date = $('#' + dataId).find('a').attr('data-videodate');
+  var views = $('#' + dataId).find('a').attr('data-videoview');
+  var duration = $('#' + dataId).find('a').attr('data-duration');
+  var thumbnile = $('#' + dataId).find('a').attr('data-thumbnile');
+  var videoId = $('#' + dataId).find('a').attr('data-videoId');
+  var mediaId = $('#' + dataId).find('a').attr('data-mediaId');
+  var videoslug = $('#' + dataId).find('a').attr('data-videoslug');
+  var shortDescription = $('#' + dataId).find('a').attr('data-short-description');
+  var duration1 = $('#' + dataId).find('a').attr('data-duration1');
+  var share = $('#' + dataId).find('a').attr('data-share');
+
+  //For Video Details
+  $('#upcoming-title').text(title);
+  $('#upcoming-date').text(date);
+  $('#upcoming-views').text(views);
+  $('#upcoming-duration').text(duration);
+  $('#upcoming-image').attr("src", thumbnile);
+
+  //For Anchor Tag
+  $('.upcoming-img').find('a').attr("data-title", title);
+  $('.upcoming-img').find('a').attr("data-videoId", videoId);
+  $('.upcoming-img').find('a').attr("data-videoTitle", title);
+  $('.upcoming-img').find('a').attr("data-videoView", views);
+  $('.upcoming-img').find('a').attr("data-mediaId", mediaId);
+  $('.upcoming-img').find('a').attr("data-videoDate", date);
+  $('.upcoming-img').find('a').attr("data-thumbnile", thumbnile);
+  $('.upcoming-img').find('a').attr("data-duration", duration);
+  $('.upcoming-img').find('a').attr("data-videoslug", videoslug);
+  $('.upcoming-img').find('a').attr("data-short-description", shortDescription);
+  $('.upcoming-img').find('a').attr("data-duration1", duration1);
+  $('.upcoming-img').find('a').attr("data-share", share);
+}
+
+function setToggle() {
+  var platform = 'international';
+  if ($('.inter-domestic-toggle').is(':checked')) {
+    platform = 'domestic';
+  } else {
+      platform = 'international';
+  }
+  $(".category-menu, .h_platform").removeClass("active");
+  $('#pills-' + platform + '-tab').addClass("active");
+  $('.' + platform + '-category-menu:first').addClass("active");
+  $(".imw-tabs").hide();
+  $('.' + platform + "-tabs:first").show();
+  setNavigationUrl();
+}
+
+var $temp = $("<input>"),
+  $url = $(location).attr("href");
+function cookie() {
+  var e = $(".cookie__accept"),
+    s = $(".cookie__decline"),
+    o = $(".cookie");
+  o.fadeIn("fast"),
+    e.on("click", function () {
+      o.fadeOut("slow"), setCookie("username", "cookieSet");
+    }),
+    s.on("click", function () {
+      o.fadeOut("slow"), setCookie("username", "cookieSet");
+    });
+}
+function setCookie(e, s) {
+  let o = new Date();
+  o.setTime(o.getTime() + 31536e6);
+  let i = "expires=" + o.toUTCString();
+  document.cookie = e + "=" + s + ";" + i + ";path=/";
+}
+function getCookie(e) {
+  let s = e + "=",
+    o = decodeURIComponent(document.cookie).split(";");
+  for (let i = 0; i < o.length; i++) {
+    let t = o[i];
+    for (; " " == t.charAt(0); ) t = t.substring(1);
+    if (0 == t.indexOf(s)) return t.substring(s.length, t.length);
+  }
+  return "";
+}
+$(function () {
+  "cookieSet" != getCookie("username") && cookie();
+}),
+
+$(document).ready(function () {
+  
+  const players = [];
+
+  // Event delegation for mouseenter and mouseleave
+  $(document).on("mouseenter mouseleave", ".hoverVideoPlayNow", function (event) {
+
+    const screen = $(window);  
+    if (screen.width() < 1025) {
+      return;
+    }
+
+    const elementID = $(this).data('mainid');
+    const videoContainer = $('#show_for_video_' + elementID);
+    const imageContainer = $('#show_for_image_' + elementID);
+    const mediaId = $('#content_main_' + elementID).data('mediaid');
+    if (event.type === "mouseenter") {
+      videoContainer.show();
+      imageContainer.hide();
+      playerBro(elementID, mediaId);
+    } else {
+      videoContainer.hide();
+      imageContainer.show();
+      playerBro(elementID, false);
+    }
+  });
+
+  $(document).on("click", ".hoverVideoPlayNow", function (event) {
+    const screen = $(window);  
+    if (screen.width() < 1025) {
+      return;
+    }
+
+    const elementID = $(this).data('mainid');
+    videojs.getPlayer("myPlayersBro_"+elementID).ready(function(){
+      this.pause();
+    })
+  });
+
+  // Function to initialize players
+  function initPlayers() {
+    for (const [playerId, player] of Object.entries(videojs.players)) {
+      player.ready(function () {
+        const myPlayer = this;
+        myPlayer.on("play", onPlay);
+        players.push(myPlayer);
+      });
+    }
+  }
+
+  // Initialize players
+  initPlayers();
+
+  // Function to handle play event
+  function onPlay(e) {
+    const id = e.target.id;
+    players.forEach(player => {
+      if (player.id() !== id) {
+        videojs.getPlayer(player.id()).pause();
+      }
+    });
+  }
+
+  // Function to handle video playback
+  function playerBro(elementID, mediaId) {
+    console.log(elementID + '  =>' + mediaId);
+    if (mediaId) {
+      videojs.getPlayer('myPlayersBro_' + elementID).ready(function () {
+        const myPlayer = this;
+        myPlayer.catalog.getVideo(mediaId, function (error, video) {
+          myPlayer.catalog.load(video);
+          // myPlayer.play();
+        });
+        myPlayer.play();
+
+      });
+    } else {
+      players.forEach(player => {
+        videojs.getPlayer(player.id()).pause();
+      });
+      videojs.getPlayer('myPlayersBro_' + elementID).ready(function () {
+        this.pause();
+      })
+    }
+  }
+});
